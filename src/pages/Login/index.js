@@ -58,7 +58,7 @@ export default function Login() {
                         class="input-login"
                         
                     />
-                    <a class="forgot-password">Esqueci minha senha</a>
+                    <a class="forgot-password" onClick={() => alert('Em desenvolvimento')}>Esqueci minha senha</a>
                     <button className="button" onClick={handleLogin}>ENTRAR</button>
                     <p class="text-register">Ainda não é registrado?</p>
                     <button className="button-outline" onClick={()=>alert('Em desenvolvimento')}>CADASTRO</button>
