@@ -41,7 +41,7 @@ export default function Login() {
             <section className="form">
                 <img src={logoImg} class="logo-img" />
 
-                <form onSubmit={handleLogin}>
+                <form >
                     <h2 class="title-login">Login</h2>
 
                     <input
@@ -59,9 +59,9 @@ export default function Login() {
                         
                     />
                     <a class="forgot-password">Esqueci minha senha</a>
-                    <button className="button" type="submit">ENTRAR</button>
+                    <button className="button" onClick={handleLogin}>ENTRAR</button>
                     <p class="text-register">Ainda não é registrado?</p>
-                    <button className="button-outline" type="submit">CADASTRO</button>
+                    <button className="button-outline" onClick={()=>alert('Em desenvolvimento')}>CADASTRO</button>
                 </form>
             </section>
             <img src={circleImage} className="circle-image" />
