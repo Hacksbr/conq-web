@@ -5,13 +5,13 @@ import { FiLogIn } from 'react-icons/fi'
 import api from '../../services/api'
 import './styles.css'
 
-import logoImg from '../../assets/logo.svg'
-import herosImg from '../../assets/heroes.png'
+import logoImg from '../../assets/images/logoLogin.png'
+import circleImage from '../../assets/images/circleLogin.png'
 
 
 export default function Login() {
-    const [login, setLogin] = useState('admin');
-    const [senha, setSenha] = useState('admin');
+    const [login, setLogin] = useState('');
+    const [senha, setSenha] = useState('');
     const history = useHistory()
 
     async function handleLogin(e) {
@@ -37,36 +37,36 @@ export default function Login() {
 
     return (
         <div className="logon-container">
+          
             <section className="form">
-                <img src={logoImg} alt="Be The Hero" />
+                <img src={logoImg} class="logo-img" />
 
                 <form onSubmit={handleLogin}>
-                    <h1>Faça seu login</h1>
+                    <h2 class="title-login">Login</h2>
 
                     <input
-                        placeholder="Seu usuário"
+                        placeholder="E-mail"
                         value={login}
                         onChange={e => setLogin(e.target.value)}
+                        class="input-login"
+                        
                     />
                     <input
-                        placeholder="Sua senha"
+                        placeholder="Senha"
                         value={senha}
                         onChange={e => setSenha(e.target.value)}
+                        class="input-login"
+                        
                     />
-                    <button className="button" type="submit">Entrar</button>
-
-                    <Link 
-                    className="back-link" 
-                    // to="/register"
-                    onClick={()=>alert('Em desenvolvimento.')}
-                    >
-                        <FiLogIn size={16} color="#E02041" />
-                        Não tenho cadastro
-                    </Link>
+                    <a class="forgot-password">Esqueci minha senha</a>
+                    <button className="button" type="submit">ENTRAR</button>
+                    <p class="text-register">Ainda não é registrado?</p>
+                    <button className="button-outline" type="submit">CADASTRO</button>
                 </form>
             </section>
+            <img src={circleImage} className="circle-image" />
 
-            <img src={herosImg} alt="Heroes" />
+           
         </div>
     )
 }
