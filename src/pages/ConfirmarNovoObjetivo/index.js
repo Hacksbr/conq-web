@@ -78,7 +78,7 @@ export default function Home() {
                     <img src={logoImg} class="logo-img" />
                 </div>
                 <div>
-                    <h2 onClick={() => history.push('/objetivos')} style={{ marginLeft: 8, fontWeight: 'bold', color: '#00E676', textAlign: 'end', cursor: 'pointer' }}>Voltar</h2>
+                    <h2 onClick={() => history.push('/novoObjetivo')} style={{ marginLeft: 8, fontWeight: 'bold', color: '#00E676', textAlign: 'end', cursor: 'pointer' }}>Voltar</h2>
                 </div>
 
             </div>

@@ -88,7 +88,7 @@ export default function Home() {
 
                 <div style={{ display: 'flex', flex: 1, flexDirection: 'column', marginTop: 30 }}>
 
-                    <div onClick={() => alert('Em desenvolvimento')} style={{ display: 'flex', flexDirection: 'row', maxHeight: 100, cursor: 'pointer', }}>
+                    <div onClick={() => history.push('/detalhesObjetivo')} style={{ display: 'flex', flexDirection: 'row', maxHeight: 100, cursor: 'pointer', }}>
                         {/* <img src={iphone} style={{ height: 50 }} /> */}
                         <p style={{ fontWeight: 'bold', color:'#00E676', fontSize:26}}>80%</p>
                         <div style={{ display: 'flex', flexDirection: 'column', marginLeft: 30 }}>
@@ -97,7 +97,7 @@ export default function Home() {
                         </div>
                     </div>
 
-                    <div style={{ display: 'flex', flexDirection: 'row', maxHeight: 100, cursor: 'pointer', marginTop: 50 }} onClick={() => alert('Em desenvolvimento')}>
+                    <div style={{ display: 'flex', flexDirection: 'row', maxHeight: 100, cursor: 'pointer', marginTop: 50 }} onClick={() => history.push('/detalhesObjetivo')}>
                         {/* <img src={iphone} style={{ height: 50 }} /> */}
                         <p style={{ fontWeight: 'bold', color: '#00E676', fontSize: 26 }}>99%</p>
                         <div style={{ display: 'flex', flexDirection: 'column', marginLeft: 30 }}>
@@ -106,7 +106,7 @@ export default function Home() {
                         </div>
                     </div>
 
-                    <div style={{ display: 'flex', flexDirection: 'row', maxHeight: 100, cursor: 'pointer', marginTop: 50 }} onClick={() => alert('Em desenvolvimento')}>
+                    <div style={{ display: 'flex', flexDirection: 'row', maxHeight: 100, cursor: 'pointer', marginTop: 50 }} onClick={() => history.push('/detalhesObjetivo')}>
                         {/* <img src={iphone} style={{ height: 50 }} /> */}
                         <p style={{ fontWeight: 'bold', color: '#00E676', fontSize: 26 }}>80%</p>
                         <div style={{ display: 'flex', flexDirection: 'column', marginLeft: 30 }}>
@@ -115,7 +115,7 @@ export default function Home() {
                         </div>
                     </div>
 
-                    <div style={{ display: 'flex', flexDirection: 'row', maxHeight: 100, cursor: 'pointer', marginTop: 50 }} onClick={() => alert('Em desenvolvimento')}>
+                    <div style={{ display: 'flex', flexDirection: 'row', maxHeight: 100, cursor: 'pointer', marginTop: 50 }} onClick={() => history.push('/detalhesObjetivo')}>
                         {/* <img src={iphone} style={{ height: 50 }} /> */}
                         <p style={{ fontWeight: 'bold', color: '#00E676', fontSize: 26 }}>99%</p>
                         <div style={{ display: 'flex', flexDirection: 'column', marginLeft: 30 }}>
@@ -124,7 +124,7 @@ export default function Home() {
                         </div>
                     </div>
 
-                     <div style={{ display: 'flex', flexDirection: 'row', maxHeight: 100, cursor: 'pointer', marginTop: 50 }} onClick={() => alert('Em desenvolvimento')}>
+                     <div style={{ display: 'flex', flexDirection: 'row', maxHeight: 100, cursor: 'pointer', marginTop: 50 }} onClick={() => history.push('/detalhesObjetivo')}>
                         {/* <img src={iphone} style={{ height: 50 }} /> */}
                         <p style={{ fontWeight: 'bold', color: '#00E676', fontSize: 26 }}>80%</p>
                         <div style={{ display: 'flex', flexDirection: 'column', marginLeft: 30 }}>
@@ -133,7 +133,7 @@ export default function Home() {
                         </div>
                     </div>
 
-                     <div style={{ display: 'flex', flexDirection: 'row', maxHeight: 100, cursor: 'pointer', marginTop: 50 }} onClick={() => alert('Em desenvolvimento')}>
+                     <div style={{ display: 'flex', flexDirection: 'row', maxHeight: 100, cursor: 'pointer', marginTop: 50 }} onClick={() => history.push('/detalhesObjetivo')}>
                         {/* <img src={iphone} style={{ height: 50 }} /> */}
                         <p style={{ fontWeight: 'bold', color: '#00E676', fontSize: 26 }}>99%</p>
                         <div style={{ display: 'flex', flexDirection: 'column', marginLeft: 30 }}>

@@ -1,19 +1,35 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useHistory } from 'react-router-dom'
-import { FiPower, FiTrash2, FiClipboard } from 'react-icons/fi'
+import { FiCheck, FiTrash2 } from 'react-icons/fi'
+
+import ReactList from 'react-list';
 
 import api from '../../services/api'
 import './styles.css'
 
-import logoImg from '../../assets/logo.svg'
+
+import logoImg from '../../assets/images/logoLogin.png'
+import plus from '../../assets/images/plus.png'
+import ccard from '../../assets/images/credit-cards.png'
+import minus from '../../assets/images/minus.png'
+import transf from '../../assets/images/transf.png'
+import chart from '../../assets/images/chart.png'
+import show from '../../assets/images/show.png'
+import iphone from '../../assets/images/iphone.jpg'
 
 
-export default function DetalhesObjetivo() {
+export default function Home() {
     const [incidents, setIncidents] = useState([])
     const history = useHistory()
 
     const ongId = localStorage.getItem('ongId')
     const ongName = localStorage.getItem('ongName')
+
+    const [selected, setSelected] = useState(-1);
+    const [valor, setValor] = useState('');
+
+
+    const [menu, setMenu] = useState(true);
 
     useEffect(() => {
         api.get('profile', {
@@ -45,39 +61,69 @@ export default function DetalhesObjetivo() {
         history.push('/')
     }
 
+    function termos() {
+        if (selected == -1) {
+            alert('Selecione alguma opção')
+        }
+        else {
+            history.push('/termosObjetivo')
+        }
+    }
+
+
     return (
         <div className="profile-container">
-            <header>
-                <img src={logoImg} alt="Be The Hero" />
-                <span>Bem vindo, {ongName}</span>
+            <div style={{ flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', display: 'flex', paddingTop: 25, paddingLeft: 230, paddingRight: 230, paddingBottom: 50, }}>
+                <div style={{ display: 'flex' }}>
+                    <img src={logoImg} class="logo-img" />
+                </div>
+                <div>
+                    <h2 onClick={() => history.push('/objetivos')} style={{ marginLeft: 8, fontWeight: 'bold', color: '#00E676', textAlign: 'end', cursor: 'pointer' }}>Voltar</h2>
+                </div>
 
-                <Link className="button" to="/objetivos">Voltar</Link>
+            </div>
+            <div style={{ display: 'flex', flex: 2, flexDirection: "column", justifyContent: 'space-between', marginTop: 20, paddingLeft: 230, paddingRight: 230 }}>
 
-            </header>
-            <h1>Você já concluiu 50% do objetivo</h1>
+                <div style={{ display: 'flex', flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
 
-            <ul>
-                <li key={0}>
-                    <strong>Objetivo:</strong>
-                    <p>Trocar de carro</p>
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                        <h2 style={{ fontWeight: 'bold' }}>Viagem para Orlando</h2>
+                    </div>
+                </div>
 
-                    <strong>VALOR</strong>
-                    <p>{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(15000)}</p>
 
-                  
-                </li>
-            </ul>
+                <div style={{ display: 'flex', flex: 1, flexDirection: 'column', marginTop: 30 }}>
 
-            <h2>Como atingir o objetivo mais rápido?</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut elit sodales, pretium mi a, efficitur tellus. Nunc fringilla suscipit sagittis. Pellentesque lobortis rutrum ultrices. Sed semper, ipsum sed aliquam eleifend, magna enim vehicula lectus, eget fermentum neque quam ut ex. Phasellus dapibus elit nisi, ac convallis nibh mattis non. Phasellus at dolor convallis, convallis ex sed, convallis libero. Duis magna metus, venenatis non nisi id, interdum condimentum dui. Suspendisse iaculis, dolor in dapibus maximus, diam mauris tempus lectus, in tincidunt enim eros vitae tellus. Aenean in pellentesque arcu.
+                    <p style={{ fontSize: 16 }}>Progresso</p>
+                   
 
-            Cras fringilla congue mauris, a gravida odio malesuada bibendum. In vitae tellus volutpat, tincidunt tortor sed, posuere diam. In congue eros a felis eleifend, nec imperdiet urna placerat. Duis dignissim ultricies interdum. Nam consequat varius vulputate. Donec sed quam ullamcorper, dapibus felis vel, tempus sem. Nullam fringilla dui a tellus pretium rhoncus. Vivamus vel consectetur tellus. Maecenas nec metus at felis dignissim rutrum.
+                    <div style={{ display: 'flex', flexDirection: "row", justifyContent: 'space-between', marginTop: 20 }}>
 
-            Praesent augue est, tristique vel neque eget, rutrum finibus sapien. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin vitae mollis leo. Nullam sit amet ex quis nulla tristique lacinia. Sed iaculis pellentesque est nec hendrerit. Donec tincidunt egestas nibh nec vulputate. Etiam cursus varius elit sit amet maximus. Phasellus purus lorem, auctor ac mi viverra, pretium feugiat est. Vestibulum vulputate eget lectus ac blandit. Maecenas quis congue justo. Suspendisse aliquam egestas purus, sed mattis massa dictum eu. Aenean ante massa, scelerisque eget lorem eu, mollis tincidunt ipsum.
+                        <div style={{ display: 'flex', flexDirection: 'column',border: 'solid', flex: 1, borderRadius: 6, borderWidth: 0 }}>
+                            <p style={{ textAlign: 'center', fontWeight: 'bold', color:'#00E676', fontSize:46, marginTop:20 }}>80%</p>
+                        </div>
 
-            In malesuada neque enim, pharetra ultrices nulla porttitor at. Nulla porta odio nec metus congue, condimentum commodo turpis venenatis. Sed non nisl et ex porta laoreet eu dignissim sapien. Fusce nec diam porta, commodo erat vitae, venenatis arcu. Nunc porta turpis auctor pharetra placerat. Quisque lacinia iaculis massa eu ornare. Pellentesque eu tempor sapien. Quisque vel commodo sem. In nisi massa, scelerisque vel massa ac, fringilla ultrices lorem.
+                        <div style={{ display: 'flex', flexDirection: 'column', border: 'solid', flex: 1, borderRadius: 6, borderWidth: 0 }}>
 
-Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed efficitur tellus in justo tristique auctor. Fusce mauris quam, mollis nec elementum in, sagittis quis metus. Cras tortor lacus, tempus quis nulla id, pretium scelerisque risus. Curabitur rhoncus gravida tincidunt. Etiam sit amet suscipit nisi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc tristique erat rhoncus ipsum scelerisque egestas. Proin lacinia maximus suscipit.</p>
+                            <p style={{ }}>Conclusão prevista em</p>
+                            <p style={{  fontWeight: 'bold', color: '#00E676', fontSize:26 }}>20 mai 2022</p>
+
+                            <p style={{  marginTop:10 }}>Conquistado</p>
+                            <p style={{  fontWeight: 'bold', color: '#00E676', fontSize: 26 }}>R$9.99,999</p>
+
+                            <p style={{  marginTop:10 }}>Objetivo</p>
+                            <p style={{ fontWeight: 'bold', color: '#00E676', fontSize: 26 }}>R$99.99,999</p>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
         </div>
     )
 }
