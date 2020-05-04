@@ -26,7 +26,7 @@ export default function Routes() {
         <Route path="/home" component={Home} />
         <Route path="/incidents/new" component={NovoObjetivo} />
         <Route path="/objetivos" component={Objetivos} />
-        <Route path="/newObjetivo" component={NovoObjetivo} />
+        <Route path="/novoObjetivo" component={NovoObjetivo} />
         <Route path="/detalhesObjetivo" component={DetalhesObjetivo} />
         <Route path="/premios" component={Premios} />
         <Route path="/confirmarNovoObjetivo" component={ConfirmarNovoObjetivo} />

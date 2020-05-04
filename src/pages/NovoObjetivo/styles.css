@@ -1,48 +1,104 @@
-.new-incident-container {
+.profile-container {
   width: 100%;
-  max-width: 1120px;
-  height: 100vh;
-  margin: 0 auto;
-
+  max-width: 1180px;
   display: flex;
-  align-items: center;
-  justify-content: center;
-}
+  flex: 1;
+  flex-direction: column;
 
-.new-incident-container .content {
-  width: 100%;
-  padding: 96px;
-  background: #f0f0f5;
-  box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
-  border-radius: 0px;
-
-  display: flex;
+  padding-top: 200px;
+  background-color: #F5F5F5;
   justify-content: space-between;
+ 
+}
+
+.profile-container header {
+  display: flex;
   align-items: center;
 }
 
-.new-incident-container .content section {
-  width: 100%;
-  max-width: 380px;
+.profile-container header span {
+  font-size: 20px;
+  margin-left: 24px;
 }
 
-.new-incident-container .content section h1 {
-  margin: 64px 0 32px;
-  font-size: 32px;
+.profile-container header img {
+  height: 64px;
 }
 
-.new-incident-container .content section p {
-  font-size: 18px;
+.profile-container header a {
+  width: 260px;
+  margin-left: auto;
+  margin-top: 0;
+}
+
+.profile-container header button {
+  width: 60px;
+  height: 60px;
+  border-radius: 4px;
+  border: 1px solid #dcdce6;
+  background-attachment: transparent;
+  margin-left: 16px;
+  transition: border-color 0.2s;
+}
+
+.profile-container header button:hover {
+  border-color: #999;
+}
+
+.profile-container h1 {
+  margin-top: 80px;
+  margin-bottom: 24px;
+}
+
+.profile-container ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 24px;
+  list-style: none;
+}
+
+.profile-container ul li {
+  background: #FFF;
+  padding: 24px;
+  border-radius: 8px;
+  position: relative;
+}
+
+.profile-container ul li button {
+  position: absolute;
+  right: 24px;
+  top: 24px;
+  border: 0;
+}
+
+.profile-container ul li button:hover {
+  opacity: 0.8;
+}
+
+.profile-container ul li strong {
+  display: block;
+  margin-bottom: 16px;
+  color: #41414d;
+}
+
+.profile-container ul li p + strong {
+  margin-top: 32px;
+}
+
+.profile-container ul li p {
   color: #737380;
-  line-height: 32px;
+  line-height: 21px;
+  font-size: 16px;
 }
 
-.new-incident-container .content form {
-  width: 100%;
-  max-width: 450px;
+.logo-img {
+  width: 70%;
+  height: 70%;
+  display: flex;
+  align-self: center;
 }
 
-.new-incident-container .content form input,
-.new-incident-container .content form textarea {
-  margin-top: 8px;
+.input-login{
+  border-width: 0px;
+  background-color: #F5F5F5;
 }

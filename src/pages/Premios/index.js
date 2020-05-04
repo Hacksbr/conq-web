@@ -1,19 +1,32 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useHistory } from 'react-router-dom'
-import { FiPower, FiTrash2, FiClipboard, FiArrowLeft } from 'react-icons/fi'
+import { FiPower, FiTrash2 } from 'react-icons/fi'
+
+import ReactList from 'react-list';
 
 import api from '../../services/api'
 import './styles.css'
 
-import logoImg from '../../assets/logo.svg'
+
+import logoImg from '../../assets/images/logoLogin.png'
+import plus from '../../assets/images/plus.png'
+import ccard from '../../assets/images/credit-cards.png'
+import minus from '../../assets/images/minus.png'
+import transf from '../../assets/images/transf.png'
+import chart from '../../assets/images/chart.png'
+import show from '../../assets/images/show.png'
+import iphone from '../../assets/images/iphone.jpg'
 
 
-export default function Objetivos() {
+export default function Home() {
     const [incidents, setIncidents] = useState([])
     const history = useHistory()
 
     const ongId = localStorage.getItem('ongId')
     const ongName = localStorage.getItem('ongName')
+
+
+    const [menu, setMenu] = useState(true);
 
     useEffect(() => {
         api.get('profile', {
@@ -45,38 +58,100 @@ export default function Objetivos() {
         history.push('/')
     }
 
+
     return (
         <div className="profile-container">
-            <header>
-                <img src={logoImg} alt="Be The Hero" />
-                <span>Bem vindo, {ongName}</span>
+            <div style={{ flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', display: 'flex', paddingTop: 25, paddingLeft: 230, paddingRight: 230, paddingBottom: 50, }}>
+                <div style={{  display: 'flex' }}>
+                    <img src={logoImg} class="logo-img" />
+                </div>
+                <div>
+                    <h2 onClick={() => history.push('/home')} style={{ marginLeft: 8, fontWeight: 'bold', color: '#00E676', textAlign:'end', cursor:'pointer' }}>Voltar</h2>
+                </div>
 
-                <button onClick={() => history.push('/home')} type="button">
-                    <FiArrowLeft size={18} color="#E02041"></FiArrowLeft>
-                </button>
+            </div>
+            <div style={{ display: 'flex', flex: 2, flexDirection: "column", justifyContent: 'space-between', marginTop: 20, paddingLeft: 230, paddingRight: 230 }}>
 
-            </header>
-            <h1>Prêmios</h1>
+                <div style={{ display: 'flex', flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
 
-            <ul>
-                <li key={0}>
-                    <strong>Prêmio:</strong>
-                    <p>Televisão</p>
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                        <h2 style={{ fontWeight: 'bold' }}>Prêmios</h2>
+                    </div>
 
-                    <strong>Quantidade de pontos</strong>
-                    <p>15</p>
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                        <h3 style={{ textAlign: 'end'}}>Meus pontos</h3>
+                        <h3 style={{ fontWeight: 'bold', textAlign: 'center', color:'#00E676' }}>999</h3>
+                    </div>
 
-                </li>
-            </ul>
-            <ul>
-                <li key={1}>
-                    <strong>Prêmio:</strong>
-                    <p>Geladeira</p>
 
-                    <strong>Quantidade de pontos</strong>
-                    <p>20</p>
-                </li>
-            </ul>
+                </div>
+
+               
+                    <div style={{ display: 'flex', flex: 1, flexDirection: 'column', marginTop: 30 }}>
+
+                     <div onClick={()=>alert('Em desenvolvimento')} style={{display:'flex', flexDirection:'row', maxHeight: 100, cursor:'pointer',}}>
+                        <img src={iphone} style={{height:50}} />
+                        <div style={{display:'flex', flexDirection:'column', marginLeft: 30}}>
+                            <h3 style={{  }}>Iphone 11 Apple 64GB Preto</h3>
+                            <h3 style={{ fontWeight: 'bold',  color: '#00E676', marginTop: 20 }}>999pts</h3>
+                        </div>
+                    </div>  
+
+                    <div style={{ display: 'flex', flexDirection: 'row', maxHeight: 100, cursor:'pointer', marginTop:50 }} onClick={()=>alert('Em desenvolvimento')}>
+                        <img src={iphone} style={{ height: 50 }} />
+                        <div style={{ display: 'flex', flexDirection: 'column', marginLeft: 30 }}>
+                            <h3 style={{}}>Iphone 11 Apple 64GB Preto</h3>
+                            <h3 style={{ fontWeight: 'bold', color: '#00E676', marginTop: 20 }}>999pts</h3>
+                        </div>
+                    </div>  
+
+                    <div style={{ display: 'flex', flexDirection: 'row', maxHeight: 100, cursor:'pointer', marginTop:50 }} onClick={()=>alert('Em desenvolvimento')}>
+                        <img src={iphone} style={{ height: 50 }} />
+                        <div style={{ display: 'flex', flexDirection: 'column', marginLeft: 30 }}>
+                            <h3 style={{}}>Iphone 11 Apple 64GB Preto</h3>
+                            <h3 style={{ fontWeight: 'bold', color: '#00E676', marginTop: 20 }}>999pts</h3>
+                        </div>
+                    </div>  
+
+                    <div style={{ display: 'flex', flexDirection: 'row', maxHeight: 100, cursor:'pointer', marginTop:50 }} onClick={()=>alert('Em desenvolvimento')}>
+                        <img src={iphone} style={{ height: 50 }} />
+                        <div style={{ display: 'flex', flexDirection: 'column', marginLeft: 30 }}>
+                            <h3 style={{}}>Iphone 11 Apple 64GB Preto</h3>
+                            <h3 style={{ fontWeight: 'bold', color: '#00E676', marginTop: 20 }}>999pts</h3>
+                        </div>
+                    </div>  
+
+                    <div style={{ display: 'flex', flexDirection: 'row', maxHeight: 100, cursor:'pointer', marginTop:50 }} onClick={()=>alert('Em desenvolvimento')}>
+                        <img src={iphone} style={{ height: 50 }} />
+                        <div style={{ display: 'flex', flexDirection: 'column', marginLeft: 30 }}>
+                            <h3 style={{}}>Iphone 11 Apple 64GB Preto</h3>
+                            <h3 style={{ fontWeight: 'bold', color: '#00E676', marginTop: 20 }}>999pts</h3>
+                        </div>
+                    </div>  
+
+                    <div style={{ display: 'flex', flexDirection: 'row', maxHeight: 100, cursor:'pointer', marginTop:50 }} onClick={()=>alert('Em desenvolvimento')}>
+                        <img src={iphone} style={{ height: 50 }} />
+                        <div style={{ display: 'flex', flexDirection: 'column', marginLeft: 30 }}>
+                            <h3 style={{}}>Iphone 11 Apple 64GB Preto</h3>
+                            <h3 style={{ fontWeight: 'bold', color: '#00E676', marginTop: 20 }}>999pts</h3>
+                        </div>
+                    </div>  
+
+                    {/* <ReactList
+                        itemRenderer={(item,index)=>{
+                            return(
+                                <p>aaa</p>
+                            )
+                        }}
+                        length={50}
+                        type='uniform'
+                        /> */}
+
+                    </div>
+                
+            </div>
+
+
         </div>
     )
 }

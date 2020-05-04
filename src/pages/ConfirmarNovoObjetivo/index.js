@@ -1,19 +1,35 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useHistory } from 'react-router-dom'
-import { FiPower, FiTrash2, FiCheckSquare, FiBookOpen } from 'react-icons/fi'
+import { FiCheck, FiTrash2 } from 'react-icons/fi'
+
+import ReactList from 'react-list';
 
 import api from '../../services/api'
 import './styles.css'
 
-import logoImg from '../../assets/logo.svg'
+
+import logoImg from '../../assets/images/logoLogin.png'
+import plus from '../../assets/images/plus.png'
+import ccard from '../../assets/images/credit-cards.png'
+import minus from '../../assets/images/minus.png'
+import transf from '../../assets/images/transf.png'
+import chart from '../../assets/images/chart.png'
+import show from '../../assets/images/show.png'
+import iphone from '../../assets/images/iphone.jpg'
 
 
-export default function ConfirmarNovoObjetivo() {
+export default function Home() {
     const [incidents, setIncidents] = useState([])
     const history = useHistory()
 
     const ongId = localStorage.getItem('ongId')
     const ongName = localStorage.getItem('ongName')
+
+    const [selected, setSelected] = useState(-1);
+    const [valor, setValor] = useState('');
+
+
+    const [menu, setMenu] = useState(true);
 
     useEffect(() => {
         api.get('profile', {
@@ -45,63 +61,121 @@ export default function ConfirmarNovoObjetivo() {
         history.push('/')
     }
 
+
     return (
         <div className="profile-container">
-            <header>
-                <img src={logoImg} alt="Be The Hero" />
-                <span>Bem vindo, {ongName}</span>
+            <div style={{ flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', display: 'flex', paddingTop: 25, paddingLeft: 230, paddingRight: 230, paddingBottom: 50, }}>
+                <div style={{ display: 'flex' }}>
+                    <img src={logoImg} class="logo-img" />
+                </div>
+                <div>
+                    <h2 onClick={() => history.push('/objetivos')} style={{ marginLeft: 8, fontWeight: 'bold', color: '#00E676', textAlign: 'end', cursor: 'pointer' }}>Voltar</h2>
+                </div>
 
-                <Link className="button" to="/newObjetivo">Voltar</Link>
+            </div>
+            <div style={{ display: 'flex', flex: 2, flexDirection: "column", justifyContent: 'space-between', marginTop: 20, paddingLeft: 230, paddingRight: 230 }}>
 
-            </header>
-            <h1>Como atingir o objetivo?</h1>
+                <div style={{ display: 'flex', flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
 
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut elit sodales, pretium mi a, efficitur tellus. Nunc fringilla suscipit sagittis. Pellentesque lobortis rutrum ultrices. Sed semper, ipsum sed aliquam eleifend, magna enim vehicula lectus, eget fermentum neque quam ut ex. Phasellus dapibus elit nisi, ac convallis nibh mattis non. Phasellus at dolor convallis, convallis ex sed, convallis libero. Duis magna metus, venenatis non nisi id, interdum condimentum dui. Suspendisse iaculis, dolor in dapibus maximus, diam mauris tempus lectus, in tincidunt enim eros vitae tellus. Aenean in pellentesque arcu.
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                        <h2 style={{ fontWeight: 'bold' }}>Como chegar lá?</h2>
+                    </div>
 
-            Cras fringilla congue mauris, a gravida odio malesuada bibendum. In vitae tellus volutpat, tincidunt tortor sed, posuere diam. In congue eros a felis eleifend, nec imperdiet urna placerat. Duis dignissim ultricies interdum. Nam consequat varius vulputate. Donec sed quam ullamcorper, dapibus felis vel, tempus sem. Nullam fringilla dui a tellus pretium rhoncus. Vivamus vel consectetur tellus. Maecenas nec metus at felis dignissim rutrum.
 
-            Praesent augue est, tristique vel neque eget, rutrum finibus sapien. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin vitae mollis leo. Nullam sit amet ex quis nulla tristique lacinia. Sed iaculis pellentesque est nec hendrerit. Donec tincidunt egestas nibh nec vulputate. Etiam cursus varius elit sit amet maximus. Phasellus purus lorem, auctor ac mi viverra, pretium feugiat est. Vestibulum vulputate eget lectus ac blandit. Maecenas quis congue justo. Suspendisse aliquam egestas purus, sed mattis massa dictum eu. Aenean ante massa, scelerisque eget lorem eu, mollis tincidunt ipsum.
 
-            In malesuada neque enim, pharetra ultrices nulla porttitor at. Nulla porta odio nec metus congue, condimentum commodo turpis venenatis. Sed non nisl et ex porta laoreet eu dignissim sapien. Fusce nec diam porta, commodo erat vitae, venenatis arcu. Nunc porta turpis auctor pharetra placerat. Quisque lacinia iaculis massa eu ornare. Pellentesque eu tempor sapien. Quisque vel commodo sem. In nisi massa, scelerisque vel massa ac, fringilla ultrices lorem.
 
-Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed efficitur tellus in justo tristique auctor. Fusce mauris quam, mollis nec elementum in, sagittis quis metus. Cras tortor lacus, tempus quis nulla id, pretium scelerisque risus. Curabitur rhoncus gravida tincidunt. Etiam sit amet suscipit nisi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc tristique erat rhoncus ipsum scelerisque egestas. Proin lacinia maximus suscipit.</p>
+                </div>
 
-            <Link
-                className="back-link"
-                // to="/register"
-                onClick={() => history.push('/termosObjetivo')}
-            >
-                <FiBookOpen size={16} color="#E02041" />
-                        Termos de uso
-                </Link>
 
-            <Link
-                className="back-link"
-                // to="/register"
-                onClick={() => alert('Em desenvolvimento.')}
-            >
-                <FiCheckSquare size={16} color="#E02041" />
-                        E ai, topa?
-                </Link>
+                <div style={{ display: 'flex', flex: 1, flexDirection: 'column', marginTop: 30 }}>
 
-            {/* <ul>
-                {incidents.map(incident => (
-                    <li key={incident.id}>
-                        <strong>CASO:</strong>
-                        <p>{incident.title}</p>
+                   <p style={{fontSize:16}}>Para que você consiga concluir seu objetivo, criamos alguns caminhos com base nos seus dados.</p>
+                   <p style={{fontSize:16}}>Escolha o que mais combina com você.</p>
 
-                        <strong>DESCRIÇÃO</strong>
-                        <p>{incident.description}</p>
+                   <div style={{display:'flex', flexDirection:"row", justifyContent:'space-between', marginTop:20}}> 
 
-                        <strong>VALOR</strong>
-                        <p>{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(incident.value)}</p>
+                        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', border: 'solid', borderColor: '#00E676', paddingTop:15, paddingBottom:10, flex:1, borderRadius:6, borderWidth: selected == 0 ? 0.5 : 0}}>
 
-                        <button onClick={() => handleDeleteIncident(incident.id)} type="button">
-                            <FiTrash2 size={20} color="#a8a8b3" />
-                        </button>
-                    </li>
-                ))}
-            </ul> */}
+                            <p style={{textAlign:'center', fontWeight:'bold'}}>10 parcelas de</p>
+                            <p style={{ textAlign: 'center', fontWeight:'bold' }}>R$99,99</p>
+
+                            <div style={{ backgroundColor: selected == 0 ? '#212121' : '#424242', marginTop:20, width:'80%', borderRadius:6, paddingTop:15, paddingBottom:15}}>
+                                <p style={{ textAlign: 'center', color:'#00E676', fontSize:24 }}>R$99,99</p>
+                                <p style={{ textAlign: 'end', color: '#fff', marginRight:15 }}>10x</p>
+                            </div>
+
+                            <p style={{ textAlign: 'center', marginTop:20 }}>Conclusão prevista em</p>
+                            <p style={{ textAlign: 'center', marginTop: 10, marginBottom:10 }}>20 mai 2022</p>
+
+                            <button style={{ width: '80%', height: 35, marginTop: 10 }} className={selected == 0 ? "button" : "button-outline"} onClick={() => selected == 0 ? setSelected(-1) : setSelected(0)}>{selected == 0 ? 'SELECIONADO' : 'SELECIONE'}</button>
+                            {selected == 0 && 
+                            <div style={{ position: 'absolute', width: 50, height: 50, borderRadius: 100, backgroundColor:'#00E676', bottom:-26, alignItems:'center', justifyContent:'center', display:'flex'}}>
+                            <FiCheck size={26} color="#fff"></FiCheck>
+                            </div>
+                            }
+                           
+
+                        </div>
+
+                        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', border: 'solid', borderColor: '#00E676', paddingTop: 15, paddingBottom: 10, flex: 1, borderRadius: 6, borderWidth: selected == 1 ? 0.5 : 0 }}>
+
+                            <p style={{ textAlign: 'center', fontWeight: 'bold' }}>20 parcelas de</p>
+                            <p style={{ textAlign: 'center', fontWeight: 'bold' }}>R$99,99</p>
+
+                            <div style={{ backgroundColor: selected == 1 ? '#212121' : '#424242', marginTop: 20, width: '80%', borderRadius: 6, paddingTop: 15, paddingBottom: 15 }}>
+                                <p style={{ textAlign: 'center', color: '#00E676', fontSize: 24 }}>R$99,99</p>
+                                <p style={{ textAlign: 'end', color: '#fff', marginRight: 15 }}>20x</p>
+                            </div>
+
+                            <p style={{ textAlign: 'center', marginTop: 20 }}>Conclusão prevista em</p>
+                            <p style={{ textAlign: 'center', marginTop: 10, marginBottom: 10 }}>20 mai 2022</p>
+
+                            <button style={{ width: '80%', height: 35, marginTop: 10 }} className={selected == 1 ? "button" : "button-outline"} onClick={() => selected == 1 ? setSelected(-1) : setSelected(1)}>{selected == 1 ? 'SELECIONADO' : 'SELECIONE'}</button>
+                            {selected == 1 &&
+                                <div style={{ position: 'absolute', width: 50, height: 50, borderRadius: 100, backgroundColor: '#00E676', bottom: -26, alignItems: 'center', justifyContent: 'center', display: 'flex' }}>
+                                    <FiCheck size={26} color="#fff"></FiCheck>
+                                </div>
+                            }
+
+
+                        </div>
+
+                        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', border: 'solid', borderColor: '#00E676', paddingTop: 15, paddingBottom: 10, flex: 1, borderRadius: 6, borderWidth: selected == 2 ? 0.5 : 0 }}>
+
+                            <p style={{ textAlign: 'center', fontWeight: 'bold' }}>Personalizado</p>
+                            
+
+                            <div style={{ backgroundColor: selected == 2 ? '#212121' : '#424242', marginTop: 37, width: '80%', borderRadius: 6, paddingTop: 15, paddingBottom: 15 }}>
+                                <p style={{ textAlign: 'center', color: '#00E676', fontSize: 24 }}>R$99,99</p>
+                                <p style={{ textAlign: 'end', color: '#fff', marginRight: 15 }}>Selecione..</p>
+                            </div>
+
+                            <p style={{ textAlign: 'center', marginTop: 20 }}>Conclusão prevista em</p>
+                            <p style={{ textAlign: 'center', marginTop: 10, marginBottom: 10 }}>20 mai 2022</p>
+
+                            <button style={{ width: '80%', height: 35, marginTop: 10 }} className={selected == 2 ? "button" : "button-outline"} onClick={() => selected == 2 ? setSelected(-1) : setSelected(2)}>{selected == 2 ? 'SELECIONADO' : 'SELECIONE'}</button>
+                            {selected == 2 &&
+                                <div style={{ position: 'absolute', width: 50, height: 50, borderRadius: 100, backgroundColor: '#00E676', bottom: -26, alignItems: 'center', justifyContent: 'center', display: 'flex' }}>
+                                    <FiCheck size={26} color="#fff"></FiCheck>
+                                </div>
+                            }
+
+
+                        </div>
+
+                   </div>
+
+                   <div style={{display:'flex', flexDirection:'row', justifyContent:'space-between', marginTop:40, marginBottom:20}}>
+                        <button style={{ width: '30%', height: 40, marginTop: 10 }} className="button-outline" onClick={() => selected == 2 ? setSelected(-1) : setSelected(2)}>VOLTAR</button>
+
+                        <button style={{ width: '30%', height: 40, marginTop: 10 }} className="button" onClick={() => selected == 2 ? setSelected(-1) : setSelected(2)}>PRÓXIMO</button>
+                   </div>
+
+                </div>
+
+            </div>
+
+
         </div>
     )
 }

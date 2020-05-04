@@ -9,6 +9,7 @@
   justify-content: center;
   background-color: #00E676;
   flex-direction: row;
+  overflow: hidden !important;
  
 }
 
@@ -25,6 +26,7 @@
   align-items: center;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
   
 }
 
@@ -43,6 +45,7 @@
   height: 150%;
   left:50%;
   position: absolute;
+  overflow: hidden;
   
 }
 
@@ -82,4 +85,7 @@
   text-decoration: underline;
   cursor: pointer;
 
+}
+body {
+ overflow: scroll;
 }

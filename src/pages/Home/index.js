@@ -5,7 +5,14 @@ import { FiPower, FiTrash2 } from 'react-icons/fi'
 import api from '../../services/api'
 import './styles.css'
 
-import logoImg from '../../assets/logo.svg'
+
+import logoImg from '../../assets/images/logoLogin.png'
+import plus from '../../assets/images/plus.png'
+import ccard from '../../assets/images/credit-cards.png'
+import minus from '../../assets/images/minus.png'
+import transf from '../../assets/images/transf.png'
+import chart from '../../assets/images/chart.png'
+import show from '../../assets/images/show.png'
 
 
 export default function Home() {
@@ -14,6 +21,9 @@ export default function Home() {
 
     const ongId = localStorage.getItem('ongId')
     const ongName = localStorage.getItem('ongName')
+    
+
+    const [menu, setMenu] = useState(true);
 
     useEffect(() => {
         api.get('profile', {
@@ -45,49 +55,135 @@ export default function Home() {
         history.push('/')
     }
 
+
     return (
         <div className="profile-container">
-            <header>
-                <img src={logoImg} alt="Be The Hero" />
-                <span>Bem vindo, {ongName}</span>
+            <div style={{ flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', display: 'flex', paddingTop: 25, paddingLeft: 230, paddingRight: 230, paddingBottom: 50, }}>
+                <div style={{  display: 'flex' }}>
+                    <img src={logoImg} class="logo-img" />
+                </div>
+                <div style={{ flex: 1, display: 'flex', flexDirection: 'row', justifyContent: 'flex-end' }}>
+                    <h2 style={{ fontWeight: 'bold' }}>Bem vindo, </h2>
+                    <h2 style={{ marginLeft: 8, fontWeight: 'bold', color: '#00E676' }}>{" " + "Admin"}</h2>
+                </div>
 
-                <Link className="button" to="/objetivos">Objetivos</Link>
-                <Link style={{marginLeft:10}} className="button" to="/premios">Prêmios</Link>
-                <button onClick={handleLogout} type="button">
-                    <FiPower size={18} color="#E02041"></FiPower>
-                </button>
-                
-            </header>
-            <h1>Suas finanças</h1>
-            
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut elit sodales, pretium mi a, efficitur tellus. Nunc fringilla suscipit sagittis. Pellentesque lobortis rutrum ultrices. Sed semper, ipsum sed aliquam eleifend, magna enim vehicula lectus, eget fermentum neque quam ut ex. Phasellus dapibus elit nisi, ac convallis nibh mattis non. Phasellus at dolor convallis, convallis ex sed, convallis libero. Duis magna metus, venenatis non nisi id, interdum condimentum dui. Suspendisse iaculis, dolor in dapibus maximus, diam mauris tempus lectus, in tincidunt enim eros vitae tellus. Aenean in pellentesque arcu.
+            </div>
+            <div style={{ display: 'flex', flex: 2, flexDirection: "column", justifyContent: 'space-between', marginTop: 20, paddingLeft: 230, paddingRight: 230 }}>
 
-            Cras fringilla congue mauris, a gravida odio malesuada bibendum. In vitae tellus volutpat, tincidunt tortor sed, posuere diam. In congue eros a felis eleifend, nec imperdiet urna placerat. Duis dignissim ultricies interdum. Nam consequat varius vulputate. Donec sed quam ullamcorper, dapibus felis vel, tempus sem. Nullam fringilla dui a tellus pretium rhoncus. Vivamus vel consectetur tellus. Maecenas nec metus at felis dignissim rutrum.
+                <div style={{display:'flex', flex:1, flexDirection:'row', alignItems:'center', justifyContent:'space-between'}}>
 
-            Praesent augue est, tristique vel neque eget, rutrum finibus sapien. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin vitae mollis leo. Nullam sit amet ex quis nulla tristique lacinia. Sed iaculis pellentesque est nec hendrerit. Donec tincidunt egestas nibh nec vulputate. Etiam cursus varius elit sit amet maximus. Phasellus purus lorem, auctor ac mi viverra, pretium feugiat est. Vestibulum vulputate eget lectus ac blandit. Maecenas quis congue justo. Suspendisse aliquam egestas purus, sed mattis massa dictum eu. Aenean ante massa, scelerisque eget lorem eu, mollis tincidunt ipsum.
+                    <div style={{display:'flex', flexDirection:'column'}}>
+                    <h2 onClick={() => setMenu(true)} style={{ fontWeight: 'bold', cursor: 'pointer' }}>Visão geral</h2>
+                    <div style={{ backgroundColor: menu ? '#00E676' : '#fff', width: 120, height: 5, marginTop: 5 }} />
+                    </div>
 
-            In malesuada neque enim, pharetra ultrices nulla porttitor at. Nulla porta odio nec metus congue, condimentum commodo turpis venenatis. Sed non nisl et ex porta laoreet eu dignissim sapien. Fusce nec diam porta, commodo erat vitae, venenatis arcu. Nunc porta turpis auctor pharetra placerat. Quisque lacinia iaculis massa eu ornare. Pellentesque eu tempor sapien. Quisque vel commodo sem. In nisi massa, scelerisque vel massa ac, fringilla ultrices lorem.
+                    <div style={{display:'flex', flexDirection:'column'}}>
+                    <h2 onClick={() => setMenu(false)} style={{ fontWeight: 'bold', textAlign: 'end', cursor: 'pointer' }}>Ferramentas</h2>
+                    <div style={{ backgroundColor: !menu ? '#00E676' : '#fff', width: 130, height: 5, marginTop: 5, alignSelf: 'flex-end' }} />
+                    </div>
+                    
 
-Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed efficitur tellus in justo tristique auctor. Fusce mauris quam, mollis nec elementum in, sagittis quis metus. Cras tortor lacus, tempus quis nulla id, pretium scelerisque risus. Curabitur rhoncus gravida tincidunt. Etiam sit amet suscipit nisi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc tristique erat rhoncus ipsum scelerisque egestas. Proin lacinia maximus suscipit.</p>
+                </div>
 
-            {/* <ul>
-                {incidents.map(incident => (
-                    <li key={incident.id}>
-                        <strong>CASO:</strong>
-                        <p>{incident.title}</p>
+                {menu && 
+                <div style={{display:'flex', flex:1, flexDirection:'column', marginTop:24}}>
 
-                        <strong>DESCRIÇÃO</strong>
-                        <p>{incident.description}</p>
+                    <div style={{display:'flex', flexDirection:'row'}}>
 
-                        <strong>VALOR</strong>
-                        <p>{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(incident.value)}</p>
+                        <div style={{ flex: 1, display: 'flex', paddingBottom: 26, paddingTop: 26, paddingRight: 18, paddingLeft: 18, alignItems: 'center', justifyContent: 'center', backgroundColor: '#00E676', borderRadius: 8, flexDirection: 'column', marginRight:10}}>
+                            <img src={plus} style={{ position: 'absolute', display: 'flex', alignSelf: 'flex-end', width: 140, height: 110 }} />
+                            <h2 style={{
+                                color: '#525151'
+                            }}>Ganhos Mensais</h2>
+                            <div style={{ display: 'flex', flexDirection: 'row', marginTop: 18 }}>
+                                <h2 style={{ color: '#525151' }}>R$</h2>
+                                <h2 style={{ color: '#fff', marginLeft: 10, fontSize: 26, marginTop: -10 }}>9.999,99</h2>
+                            </div>
+                        </div>
 
-                        <button onClick={() => handleDeleteIncident(incident.id)} type="button">
-                            <FiTrash2 size={20} color="#a8a8b3" />
-                        </button>
-                    </li>
-                ))}
-            </ul> */}
+                        <div style={{
+                            flex: 1, display: 'flex', paddingBottom: 26, paddingTop: 26, paddingRight: 18, paddingLeft: 18, alignItems: 'center', justifyContent: 'center', backgroundColor: '#812222', borderRadius: 8, flexDirection: 'column', marginLeft:10
+                        }}>
+                            <img src={minus} style={{ position: 'absolute', display: 'flex', alignSelf: 'flex-end', width: 140, height: 110 }} />
+                            <h2 style={{
+                                color: '#fff'
+                            }}>Despesas Mensais</h2>
+                            <div style={{ display: 'flex', flexDirection: 'row', marginTop: 18 }}>
+                                <h2 style={{ color: '#fff' }}>R$</h2>
+                                <h2 style={{ color: '#fff', marginLeft: 10, fontSize: 26, marginTop: -10 }}>9.999,99</h2>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                    <div style={{display:'flex', flexDirection:'row', marginTop:20}}>
+
+                        <div style={{ flex: 1, display: 'flex', paddingBottom: 26, paddingTop: 26, paddingRight: 18, paddingLeft: 18, alignItems: 'center', justifyContent: 'center', backgroundColor: '#FFEB3B', borderRadius: 8, flexDirection: 'column', marginRight: 10 }}>
+                            <img src={transf} style={{ position: 'absolute', display: 'flex', alignSelf: 'flex-end', width: 140, height: 110 }} />
+                            <h2 style={{
+                                color: '#525151'
+                            }}>Transferências</h2>
+                            <div style={{ display: 'flex', flexDirection: 'row', marginTop: 18 }}>
+                                <h2 style={{ color: '#525151' }}>R$</h2>
+                                <h2 style={{ color: '#fff', marginLeft: 10, fontSize: 26, marginTop: -10 }}>9.999,99</h2>
+                            </div>
+
+                        </div>
+
+
+                        <div style={{ flex: 1, display: 'flex', paddingBottom: 26, paddingTop: 26, paddingRight: 18, paddingLeft: 18, alignItems: 'center', justifyContent: 'center', backgroundColor: '#0D47A1', borderRadius: 8, flexDirection: 'column', marginLeft: 10 }}>
+                            <img src={ccard} style={{ position: 'absolute', display: 'flex', alignSelf: 'flex-end', width: 140, height: 110 }} />
+                            <h2 style={{
+                                color: '#fff'
+                            }}>Gastos com cartão de crédito</h2>
+                            <div style={{ display: 'flex', flexDirection: 'row', marginTop: 18 }}>
+                                <h2 style={{ color: '#fff' }}>R$</h2>
+                                <h2 style={{ color: '#fff', marginLeft: 10, fontSize: 26, marginTop: -10 }}>9.999,99</h2>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                }
+
+                {!menu &&
+                    <div style={{ display: 'flex', flex: 1, flexDirection: 'column', marginTop: 24 }}>
+
+                    <div onClick={() => history.push('/objetivos')} style={{ display: 'flex', flexDirection: 'row', cursor:'pointer' }}>
+
+                        <div style={{ flex: 1, display: 'flex', paddingBottom: 32, paddingTop: 32, paddingRight: 18, paddingLeft: 18, justifyContent: 'center', backgroundColor: '#00E676', borderRadius: 8, flexDirection: 'column', marginRight: 10 }}>
+                                <img src={chart} style={{ position: 'absolute', display: 'flex', alignSelf: 'flex-end', width: 130, height: 90 }} />
+                                <h2 style={{
+                                color: '#fff'
+                                }}>MEUS OBJETIVOS</h2>
+                                <h2 style={{ color: '#525151' }}>Veja seus objetivos e seus progressos</h2>
+                            </div>
+
+                        </div>
+
+                    <div onClick={() => history.push('/premios')} style={{ display: 'flex', flexDirection: 'row', marginTop: 20, cursor:'pointer' }}>
+
+                            <div style={{ flex: 1, display: 'flex', paddingBottom: 32, paddingTop: 32, paddingRight: 18, paddingLeft: 18, justifyContent: 'center', backgroundColor: '#FFEB3B', borderRadius: 8, flexDirection: 'column', marginRight: 10 }}>
+                                <img src={show} style={{ position: 'absolute', display: 'flex', alignSelf: 'flex-end', width: 130, height: 90 }} />
+                            <h2 style={{
+                                color: '#fff'
+                            }}>PRÊMIOS</h2>
+                            <h2 style={{ color: '#525151' }}>Troque pontos por prêmios</h2>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                }
+
+            </div>
+
+
         </div>
     )
 }
