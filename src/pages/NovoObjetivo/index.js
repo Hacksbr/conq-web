@@ -61,6 +61,17 @@ export default function Home() {
         history.push('/')
     }
 
+    function novoObj(){
+        console.log('nome', nome)
+        console.log('valor', valor)
+        if(nome == '' || valor == ''){
+            alert('Preencha todos os dados')
+        }
+        else{
+            history.push('/confirmarNovoObjetivo')
+        }
+    }
+
 
     return (
         <div className="profile-container">
@@ -106,7 +117,7 @@ export default function Home() {
                         />
                    </div>
                    <div style={{display:'flex', justifyContent:'flex-end'}}>
-                        <div onClick={() => history.push('/confirmarNovoObjetivo')} style={{ display: 'flex', flexDirection: 'column', backgroundColor: '#00E676', paddingBottom: 10, paddingTop: 10, paddingLeft: 55, paddingRight: 55, borderRadius: 8, cursor: 'pointer', marginTop:20,  }}>
+                        <div onClick={() => novoObj()} style={{ display: 'flex', flexDirection: 'column', backgroundColor: '#00E676', paddingBottom: 10, paddingTop: 10, paddingLeft: 55, paddingRight: 55, borderRadius: 8, cursor: 'pointer', marginTop:20,  }}>
                             <h3 style={{ textAlign: 'end', color: '#fff' }}>CRIAR</h3>
                         </div>
                    </div>

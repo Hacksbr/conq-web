@@ -61,6 +61,15 @@ export default function Home() {
         history.push('/')
     }
 
+    function termos(){
+        if(selected == -1){
+            alert('Selecione alguma opção')
+        }
+        else{
+            history.push('/termosObjetivo')
+        }
+    }
+
 
     return (
         <div className="profile-container">
@@ -80,10 +89,6 @@ export default function Home() {
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
                         <h2 style={{ fontWeight: 'bold' }}>Como chegar lá?</h2>
                     </div>
-
-
-
-
                 </div>
 
 
@@ -166,9 +171,9 @@ export default function Home() {
                    </div>
 
                    <div style={{display:'flex', flexDirection:'row', justifyContent:'space-between', marginTop:40, marginBottom:20}}>
-                        <button style={{ width: '30%', height: 40, marginTop: 10 }} className="button-outline" onClick={() => selected == 2 ? setSelected(-1) : setSelected(2)}>VOLTAR</button>
+                        <button style={{ width: '30%', height: 40, marginTop: 10 }} className="button-outline" onClick={() => history.push('/novoObjetivo')}>VOLTAR</button>
 
-                        <button style={{ width: '30%', height: 40, marginTop: 10 }} className="button" onClick={() => selected == 2 ? setSelected(-1) : setSelected(2)}>PRÓXIMO</button>
+                        <button style={{ width: '30%', height: 40, marginTop: 10 }} className="button" onClick={() => termos()}>E AI, TOPA?</button>
                    </div>
 
                 </div>
