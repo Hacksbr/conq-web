@@ -1,52 +1,44 @@
 .logon-container {
   width: 100%;
-  max-width: 1520px;
   height: 100vh;
   margin: 0 auto;
-
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #00E676;
   flex-direction: row;
   overflow: hidden !important;
- 
 }
 
 .logon-container section.form {
   width: 100%;
   max-width: 350px;
-  
   background-color: white;
   z-index: 999;
   padding: 28px;
   border-radius: 8px;
-  margin-top: 20%;
-  margin-bottom: 22%;
   align-items: center;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  
 }
 
 .logon-container section.form form {
   margin-top: 15px;
- 
 }
 
 .logon-container section.form form h1 {
   font-size: 32px;
   margin-bottom: 32px;
 }
-.circle-image {
- 
 
+.circle-image {
   height: 150%;
-  left:50%;
+  left: 50%;
   position: absolute;
+  background-size: 'cover';
+  background-repeat: no-repeat;
   overflow: hidden;
-  
 }
 
 .logo-img {
@@ -64,19 +56,26 @@
   font-weight: 200;
 }
 
-.input-login{
+.input-login {
+  height: 50px;
   border-width: 0px;
   background-color: #F5F5F5;
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
-::placeholder { /* Firefox, Chrome, Opera */ 
-    color: #9E9E9E; 
-} 
+
+/* Firefox, Chrome, Opera */
+::placeholder {
+  color: #9E9E9E;
+}
+
 .text-register{
   text-align: center;
   margin-top: 26px;
   margin-bottom: -5px;
   color: #00E676;
 }
+
 .forgot-password{
   text-align: center;
   margin-top: 26px;
@@ -84,5 +83,4 @@
   color: #00E676;
   text-decoration: underline;
   cursor: pointer;
-
 }

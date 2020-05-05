@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from 'react'
-import { Link, useHistory } from 'react-router-dom'
-import { FiPower, FiTrash2 } from 'react-icons/fi'
+import { useHistory } from 'react-router-dom'
+// import { FiPower, FiTrash2 } from 'react-icons/fi'
 
-import ReactList from 'react-list';
+// import ReactList from 'react-list';
 
 import api from '../../services/api'
 import './styles.css'
 
 
 import logoImg from '../../assets/images/logoLogin.png'
-import plus from '../../assets/images/plus.png'
-import ccard from '../../assets/images/credit-cards.png'
-import minus from '../../assets/images/minus.png'
-import transf from '../../assets/images/transf.png'
-import chart from '../../assets/images/chart.png'
-import show from '../../assets/images/show.png'
-import iphone from '../../assets/images/iphone.jpg'
+// import plus from '../../assets/images/plus.png'
+// import ccard from '../../assets/images/credit-cards.png'
+// import minus from '../../assets/images/minus.png'
+// import transf from '../../assets/images/transf.png'
+// import chart from '../../assets/images/chart.png'
+// import show from '../../assets/images/show.png'
+// import iphone from '../../assets/images/iphone.jpg'
 
 
 export default function Home() {
@@ -23,13 +23,13 @@ export default function Home() {
     const history = useHistory()
 
     const ongId = localStorage.getItem('ongId')
-    const ongName = localStorage.getItem('ongName')
+    // const ongName = localStorage.getItem('ongName')
 
     const [nome, setNome] = useState('');
     const [valor, setValor] = useState('');
 
 
-    const [menu, setMenu] = useState(true);
+    // const [menu, setMenu] = useState(true);
 
     useEffect(() => {
         api.get('profile', {
@@ -40,26 +40,6 @@ export default function Home() {
             setIncidents(response.data)
         })
     }, [ongId])
-
-    async function handleDeleteIncident(id) {
-        try {
-            await api.delete(`incidents/${id}`, {
-                headers: {
-                    Authorization: ongId
-                }
-            })
-
-            setIncidents(incidents.filter(incident => incident.id !== id))
-        } catch (error) {
-            alert('Erro ao deletar caso, tente novamente.')
-        }
-    }
-
-    function handleLogout() {
-        localStorage.clear()
-
-        history.push('/')
-    }
 
     function novoObj(){
         console.log('nome', nome)

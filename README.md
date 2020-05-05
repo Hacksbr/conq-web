@@ -1,11 +1,17 @@
 <p align="center">
-  <a href="https://github.com/WesGtoX/be-the-hero">
-    <img src="src/assets/logo-be-the-hero.png" alt="Be The Hero" title="Be The Hero" width="250px">
-  </a>
+   <a href="https://github.com/MarGGet/conq-web">
+     <img src="assets/logo.png" alt="ConQ! APP" title="ConQ! APP" width="200px">
+   </a>
 </p>
 
 -----------------
 
-# Be The Hero (Front-end)
+# ConQ! APP
 
-Created with React.
+
+## Authors
+
+- [Jaderson Asc]()  
+- [Raphael](https://www.linkedin.com/in/raphaelv619/)  
+- [Tomaz Macedo](https://github.com/tomazalexandre)  
+- [Wesley Mendes](https://github.com/WesGtoX)  

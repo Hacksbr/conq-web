@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import { FiLogIn } from 'react-icons/fi'
 
-import api from '../../services/api'
+// import api from '../../services/api'
 import './styles.css'
 
 import logoImg from '../../assets/images/logoLogin.png'
@@ -23,16 +23,6 @@ export default function Login() {
         else{
             history.push('/home');
         }
-        // try {
-        //     const response = await api.post('sessions', { id })
-
-        //     localStorage.setItem('ongId', id)
-        //     localStorage.setItem('ongName', response.data.name)
-
-        //     history.push('/profile')
-        // } catch (err) {
-        //     alert('Falha no login, tente novamente.')
-        // }
     }
 
     return (
@@ -56,7 +46,6 @@ export default function Login() {
                         value={senha}
                         onChange={e => setSenha(e.target.value)}
                         class="input-login"
-                        
                     />
                     <a class="forgot-password" onClick={() => alert('Em desenvolvimento')}>Esqueci minha senha</a>
                     <button className="button" onClick={handleLogin}>ENTRAR</button>
@@ -64,9 +53,7 @@ export default function Login() {
                     <button className="button-outline" onClick={()=>alert('Em desenvolvimento')}>CADASTRO</button>
                 </form>
             </section>
-            <img src={circleImage} className="circle-image" />
-
-           
+            {/** <img src={circleImage} className="circle-image" /> */}
         </div>
     )
 }
